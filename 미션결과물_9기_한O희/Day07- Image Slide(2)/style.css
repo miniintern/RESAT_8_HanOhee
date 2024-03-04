@@ -1,0 +1,50 @@
+.slide-container {
+  position: relative;
+
+  width: 80%;
+  margin: auto;
+  margin-top: auto;
+  background-image: linear-gradient(rgb(251, 56, 56), rgb(236, 99, 227));
+}
+
+.slide-box {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.slide-wrapper {
+  display: flex;
+  width: 100%; /* 모든 슬라이드를 담을 만큼의 너비 */
+}
+
+.slide-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+}
+
+.slide-item img {
+  border: 3px solid;
+  max-width: 50%; /* 이미지 원래 크기를 넘지 않도록 */
+  max-height: 100%; /* 이미지 원래 높이를 넘지 않도록 */
+  width: 40%;
+  height: 40%;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}

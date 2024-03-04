@@ -1,0 +1,81 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카운트 다운 타이머</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="container_mini">
+        <div id="inputSection" align="center">
+          <input
+            type="number"
+            id="hours"
+            min="0"
+            value="0"
+            size="10"
+            maxlength="2"
+            style="
+              width: 60px;
+              height: 50px;
+              font-size: 60px;
+              margin-top: 25px;
+              margin-bottom: 25px;
+            "
+          />
+          <label
+            for="hours-minutes"
+            style="width: 80px; height: 50px; font-size: 50px"
+            >:</label
+          >
+          <input
+            type="number"
+            id="minutes"
+            min="0"
+            value="0"
+            size="10"
+            max="59"
+            maxlength="2"
+            style="width: 60px; height: 50px; font-size: 60px"
+          />
+          <label
+            for="minutes-seconds"
+            style="width: 80px; height: 50px; font-size: 50px"
+            >:</label
+          >
+          <input
+            type="number"
+            id="seconds"
+            min="0"
+            value="0"
+            size="10"
+            max="59"
+            maxlength="2"
+            style="width: 60px; height: 50px; font-size: 60px"
+          />
+        </div>
+        <p
+          id="timerDisplay"
+          style="
+            display: none;
+            font-size: 60px;
+            margin: 0 auto;
+            margin-left: 50px;
+            margin-top: 10px;
+          "
+        >
+          00:00:00
+        </p>
+      </div>
+      <div id="timerSection" align="center">
+        <button onclick="startTimer()">START</button>
+        <button onclick="stopTimer()">STOP</button>
+        <button onclick="resetTimer()">RESET</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

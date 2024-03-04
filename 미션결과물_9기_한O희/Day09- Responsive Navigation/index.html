@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Responsive Navigation</title>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="menu-icon" onclick="toggleMenu()">☰</a>
+      <div class="logo">
+        <a href="#">
+          <img src=".\images\totoro_mini.png" alt="Logo" />
+        </a>
+      </div>
+      <div class="menu-bar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">FAQ</a>
+      </div>
+    </nav>
+
+    <div class="show-menu" style="display: none">
+      <a href="#" onclick="toggleMenu()">Home</a>
+      <a href="#" onclick="toggleMenu()">About</a>
+      <a href="#" onclick="toggleMenu()">Contact</a>
+      <a href="#" onclick="toggleMenu()">FAQ</a>
+    </div>
+
+    <div class="content">
+      <p>안녕하세요</p>
+      <div class="content_image_1">
+        <img src=".\images\totoro_mini(2).png" alt="content Image(1)" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

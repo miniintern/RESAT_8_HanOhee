@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slide(2)</title>
+    <style>
+      body {
+        margin: 0; /* Body의 기본 마진 제거 */
+        overflow: hidden;
+      }
+      .slide-container {
+        position: relative;
+        overflow: hidden;
+        /* margin: 0; */
+        margin: auto;
+        width: 100%; /* 화면 전체 너비를 차지하도록 설정 */
+      }
+
+      .slide-box {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        margin: auto; /*추가함 */
+      }
+
+      .slide-wrapper {
+        display: flex;
+        width: 100%; /* 모든 슬라이드를 담을 만큼의 너비 */
+        margin: auto; /*추가함*/
+      }
+
+      .slide-item {
+        min-width: 100%;
+        box-sizing: border-box;
+        margin: auto;
+        text-align: center;
+        /* background-image: linear-gradient(rgb(29, 201, 140), #00da88,#00BB7B); */
+        background-image: linear-gradient(45deg, #00e98f, #00bb7b);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide-item img {
+        width: 13%; /* 부모 크기에 맞게 이미지 너비 조절 */
+        height: 13%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      .slide {
+        font-size: 25px;
+        color: white;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 60px;
+      }
+
+      .slide-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="slide-box">
+        <div class="slide-wrapper">
+          <!-- 이미지 추가 -->
+          <div class="slide-item">
+            <img src=".\images\알림.png " alt="Image 1" />
+            <p class="slide">
+              <strong>구글 스프레이드시트로<br />마케팅 데이터 분석하기</strong>
+            </p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\알림.png " alt="Image 1" />
+            <p class="slide">
+              <strong>CRM 마케팅<br />이해하기</strong>
+            </p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\알림.png " alt="Image 1" />
+            <p class="slide">
+              <strong
+                >구글 스프레이드시트로<br />
+                마케팅 데이터 분석하기</strong
+              >
+            </p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\알림.png " alt="Image 1" />
+            <p class="slide">
+              <strong
+                >검색 광고(SA)<br />
+                이해하기</strong
+              >
+            </p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\알림.png " alt="Image 1" />
+            <p class="slide">
+              <strong>
+                디스플레이 광고(DA)<br />
+                이해하기</strong
+              >
+            </p>
+          </div>
+          <!-- <div class="slide-item">
+            
+            <img
+              src=".\images\구글 스프레이드시트로 마케팅 데이터 분석하기.png "
+              alt="Image 1"
+            />
+            <p>4</p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\CRM 마케팅 이해하기.png" alt="Image 2" />
+            <p>4</p>
+          </div>
+
+          <div class="slide-item">
+            <img src=".\images\검색 광고 이해하기.png" alt="Image 3" />
+            <p>4</p>
+          </div>
+          <div class="slide-item">
+            <img src=".\images\디스플레이광고 이해하기.png" alt="Image 4" />
+            <p>4</p>
+          </div> -->
+
+          <!-- 필요에 따라 이미지 추가 -->
+        </div>
+      </div>
+
+      <div class="slide-arrow prev" onclick="prevSlide()">&#9665;</div>
+      <div class="slide-arrow next" onclick="nextSlide()">&#9655;</div>
+      <!-- <div class="paginations"></div> -->
+    </div>
+
+    <script>
+      const wrapper = document.querySelector(".slide-wrapper");
+      const items = document.querySelectorAll(".slide-item");
+      const totalItems = items.length;
+
+      // 첫장, 마지막장 슬라이드 클론 카피
+      let firstChild = wrapper.firstElementChild;
+      let lastChild = wrapper.lastElementChild;
+      let clonedFirst = firstChild.cloneNode(true);
+      let clonedLast = lastChild.cloneNode(true);
+
+      // 첫장 카피를 마지막 페이지에, 마지막장 카피를 첫페이지에 삽입
+      wrapper.appendChild(clonedFirst);
+      wrapper.insertBefore(clonedLast, wrapper.firstElementChild);
+
+      wrapper.style.width = `${100 * (totalItems + 2)}%`; //카피가 추가된 슬라이드 넓이
+
+      let currentIndex = 0; //현재 페이지
+      let translateValue;
+      wrapper.style.transform = "translateX(-100%)"; //마지막 복제 넘어가서 첫 이미지
+
+      function nextSlide() {
+        if (currentIndex < totalItems - 1) {
+          currentIndex++;
+          wrapper.style.transition = "2000ms";
+          translateValue = -(currentIndex + 1) * 100 + "%";
+          wrapper.style.transform = "translateX(" + translateValue + ")";
+        } else {
+          currentIndex++;
+          wrapper.style.transition = "2000ms";
+          translateValue = -(currentIndex + 1) * 100 + "%";
+          wrapper.style.transform = "translateX(" + translateValue + ")";
+          currentIndex = 0; //첫페이지로 돌아감
+          setTimeout(function () {
+            wrapper.style.transition = "0ms";
+            translateValue = -(currentIndex + 1) * 100 + "%";
+            wrapper.style.transform = "translateX(" + translateValue + ")";
+          }, 2000);
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          wrapper.style.transition = "2000ms";
+          translateValue = -(currentIndex + 1) * 100 + "%";
+          wrapper.style.transform = "translateX(" + translateValue + ")";
+        } else {
+          currentIndex--;
+          wrapper.style.transition = "2000ms";
+          wrapper.style.transform = "translateX(0%)";
+          currentIndex = totalItems - 1; //마지막 페이지로 돌아감
+          setTimeout(function () {
+            wrapper.style.transition = "0ms";
+            translateValue = -(currentIndex + 1) * 100 + "%";
+            wrapper.style.transform = "translateX(" + translateValue + ")";
+          }, 2000);
+        }
+      }
+
+      let intervalId; // 자동 슬라이드를 제어하기 위한 변수
+
+      function startAutoSlide() {
+        intervalId = setInterval(nextSlide, 2200); // 2.2초마다 다음 슬라이드로 이동
+      }
+
+      function stopAutoSlide() {
+        clearInterval(intervalId); // 자동 슬라이드 중지
+      }
+
+      // 페이지 로드 시 자동 슬라이드 시작
+      startAutoSlide();
+
+      // 마우스가 슬라이드 영역에 들어가면 자동 슬라이드 중지
+      wrapper.addEventListener("mouseenter", stopAutoSlide);
+
+      // 마우스가 슬라이드 영역에서 나가면 자동 슬라이드 재시작
+      wrapper.addEventListener("mouseleave", startAutoSlide);
+    </script>
+  </body>
+</html>

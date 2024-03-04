@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body bgcolor="black">
+    <div class="container">
+      <div class="container_mini">
+        <header>
+          <h1>TO-DO LIST</h1>
+        </header>
+        <div class="filterListSection">
+          <button onclick="filterList('all')">전체</button>
+          <button onclick="filterList('completed')">완료</button>
+          <button onclick="filterList('incompleted')">미완료</button>
+        </div>
+
+        <div class="taskSection">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="할 일을 작성해주세요"
+            style="
+              width: 200px;
+              height: 20px;
+              font-size: 15px;
+              font-family: 'Gowun Batang', serif;
+            "
+          />
+          <select
+            id="prioritySelect"
+            style="
+              width: 100px;
+              height: 25px;
+              font-size: 15px;
+              font-family: 'Gowun Batang', serif;
+            "
+          >
+            <option value="낮음" selected>낮음</option>
+            <option value="보통">보통</option>
+            <option value="높음">높음</option>
+            <option value="아주 높음">아주 높음</option>
+          </select>
+          <button onclick="addTask()">추가</button>
+        </div>
+        <div class="sortSection">
+          <select
+            id="sortList"
+            onchange="sortList()"
+            style="
+              width: 140px;
+              height: 20px;
+              font-size: 15px;
+              font-family: 'Gowun Batang', serif;
+            "
+          >
+            <option value="오래된순" selected>오래된순</option>
+            <option value="최신순">최신순</option>
+            <option value="우선순위 높은순">우선순위 높은순</option>
+            <option value="우선순위 낮은순">우선순위 낮은순</option>
+          </select>
+        </div>
+        <hr color="black" />
+      </div>
+
+      <div id="taskList">
+        <!-- 할 일 목록이 여기에 나열됩니다 -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

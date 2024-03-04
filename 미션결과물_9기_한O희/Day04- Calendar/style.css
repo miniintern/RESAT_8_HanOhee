@@ -1,0 +1,141 @@
+body {
+  font-family: "Gowun Dodum", sans-serif;
+  text-align: center;
+}
+
+.container {
+  background-color: #a6edd9;
+  border-radius: 0px;
+  margin: auto;
+  width: 550px;
+  height: 390px;
+  border-radius: 10%;
+}
+
+.calendar {
+  width: 500px;
+  margin: 20px auto;
+  padding-top: 20px;
+}
+
+.month {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.prev_month,
+.next_month {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+
+.arrow::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 4px solid #000;
+  border-right: 4px solid #000;
+}
+
+.prev_month .arrow {
+  left: -5px;
+  transform: rotate(225deg);
+  flex: 1;
+}
+
+.next_month .arrow {
+  right: -5px;
+  transform: rotate(45deg);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid none;
+  position: relative; /* 추가된 부분 */
+}
+td.memo-day {
+  color: black; /* 등록된 메모가 있는 날짜의 텍스트 색상 */
+  position: relative;
+}
+.memo-day .dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #3d4fbf;
+  border-radius: 50%;
+  left: 23px;
+  top: 8px;
+  display: flex;
+  opacity: 0.5;
+}
+
+.memo-container {
+  display: none;
+  width: 300px;
+  height: 180px;
+  padding: 30px;
+  background-color: #d7c0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  padding-top: 20px;
+  top: 50px;
+}
+
+.memo-header {
+  font-size: 16px;
+  margin-top: -10px;
+}
+.add_btn {
+  background-color: #b8c0f5;
+  font-size: 15px;
+  width: 50px;
+  height: 25px;
+  border-radius: 10px;
+  margin: auto;
+  margin-left: 0px;
+}
+
+.delete_btn {
+  font-size: 15px;
+  border: none;
+  float: right;
+  right: 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+.close_btn {
+  background-color: #f9f9f9;
+  font-size: 25px;
+  border: none;
+  float: right;
+  right: 0px;
+  margin-right: -15px; /* 우측 여백 추가 */
+  margin-top: -30px; /* 상단 여백 추가 */
+  position: relative;
+  cursor: pointer;
+}
+
+#memoList {
+  overflow-y: auto;
+  max-height: 120px; /* #memoList의 최대 높이 설정 (원하는 높이로 조절) */
+  padding: 10px;
+  display: flex; /* 메모들을 수평으로 배열하기 위해 flex 추가 *
+    align-items: flex-start; /* 왼쪽 정렬 */
+  flex-direction: column; /* 수직으로 배열하도록 설정 */
+}
+#monthField {
+  display: flex;
+  margin-left: 40%;
+}

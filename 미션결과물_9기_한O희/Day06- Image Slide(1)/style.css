@@ -1,0 +1,41 @@
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+  margin-top: auto;
+  background-image: linear-gradient(rgb(251, 56, 56), rgb(236, 99, 227));
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+}
+
+.carousel-item img {
+  border: 3px solid;
+  max-width: 50%;
+  max-height: 100%;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
